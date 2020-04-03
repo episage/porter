@@ -12,7 +12,7 @@ const rl = readline.createInterface({
 console.log(`Allocate a new, unused before port for localhost dev`)
 console.log(`====================================================`)
 rl.question('What is the purpose of a new port? ', (answer) => {
-    const lastFileName = getAllFiles().filter(f => typeof f === 'string').map(f => parseInt(f)).filter(Boolean).sort((a, b) => a - b)[0] || 12345;
+    const lastFileName = getAllFiles().filter(f => typeof f === 'string').map(f => parseInt(f)).filter(Boolean).sort((a, b) => b - a)[0] || 12345;
     const lastPort = parseInt(lastFileName);
     const newPort = lastPort + 1;
 
