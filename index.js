@@ -1,6 +1,7 @@
 const readline = require('readline');
 const fs = require('fs');
 const path = require('path');
+const clipboardy = require('clipboardy');
 
 const allocatedPortsDir = path.join(__dirname, `allocated`);
 
@@ -25,6 +26,8 @@ rl.question('What is the purpose of a new port? ', (answer) => {
 
     console.log(`Thank you.`);
     console.log(`Port number ${newPort} has been allocated for you.`);
+    clipboardy.writeSync(`${newPort}`);
+    console.log(`Copied to clipboard.`)
     rl.close();
 });
 
